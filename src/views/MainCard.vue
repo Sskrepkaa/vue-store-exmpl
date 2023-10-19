@@ -4,7 +4,6 @@
   </div>
   <div>
     <ul>
-      <li>first</li>
       <li v-for="product in this.products" :key="product.id">title: {{ product.title }}, price: {{ product.price }}</li>
     </ul>
   </div>
