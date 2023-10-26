@@ -1,4 +1,5 @@
 <template>
+  
   <div>
     <h3>maincard here</h3>
   </div>
@@ -7,17 +8,27 @@
       <li v-for="product in this.products" :key="product.id">title: {{ product.title }}, price: {{ product.price }}</li>
     </ul>
   </div>
+  <listItems
+    :items="products"
+  />
+  
 </template>
 
 <script>
   
   import { supabase } from '@/lib/supaclient.js'
+  import AuthIn from "@/components/AuthIn.vue"
+  import listItems from "@/components/ListItems.vue"
 
   export default {
+
+    components: {
+      AuthIn, listItems
+    },
     
     data() {
       return {
-        products: []
+        products: [],
       }
     },
     methods: {
@@ -30,11 +41,10 @@
 
           }
           catch(e) {
-            console.log("err ", e)
-            
+            console.log("err ", e);
           }
-          
-        }
+        },
+        
     },
 
     mounted(){
